@@ -1,0 +1,31 @@
+{
+    "name": "nblackburn/laravel-hashids",
+    "homepage": "http://github.com/nblackburn/laravel-hashids",
+    "description": "A hashids wrapper for Laravel 5+.",
+    "minimum-stability": "stable",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "hashids/hashids": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Nathaniel Blackburn",
+            "email": "support@nblackburn.uk",
+            "homepage": "http://nblackburn.uk"
+        }
+    ],
+    "support": {
+        "email": "support@nblackburn.uk",
+        "source": "http://github.com/nblackburn/laravel-hashids",
+        "issues": "http://github.com/nblackburn/laravel-hashids/issues"
+    },
+    "autoload": {
+    	"psr-4": {
+    		"Nblackburn\\Hashids\\": "source/"
+    	},
+    	"classmap": [
+    		"tests/"
+    	]
+    }
+}
