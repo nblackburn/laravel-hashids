@@ -39,7 +39,7 @@ Inside `bootstrap/app.php`, add the following line:
 ```php
 $app->register(Nblackburn\Hashids\Providers\HashidsServiceProvider::class);
 ```
-Then add the following to your `.env` file:
+then add the following to your `.env` file:
 
 ```ini
 HASHIDS_SALT = YOURSECRETKEY
@@ -47,7 +47,7 @@ HASHIDS_LENGTH = 8
 HASHIDS_ALPHABET = abcedfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPAQRSTUVWXYZ1234567890
 ```
 
-And you are done.
+and you are done.
 
 ### Facade
 
@@ -57,11 +57,13 @@ To add facade support, firstly uncomment the following line within `bootstrap/ap
 // $app->withFacades();
 ```
 
-And then register the facade like so...
+then register the facade like so...
 
 ```php
 class_alias(Nblackburn\Hashids\Facades\Hashids:class, 'Hashids');
 ```
+
+and you are done.
 
 ## Settings
 
