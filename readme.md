@@ -4,7 +4,9 @@ A hashids wrapper for Laravel 5+.
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square) ![Dependancies](https://img.shields.io/badge/dependancies-1-green.svg?style=flat-square)
 
-## Installation
+## Laravel
+
+### Installation
 
 Inside config/app.php add the following line in your providers
 
@@ -12,19 +14,47 @@ Inside config/app.php add the following line in your providers
 Nblackburn\Hashids\Providers\HashidsServiceProvider::class
 ```
 
-secondly, add the following line to your aliases
+### Facade
+
+To add facade support, add the following line to your aliases within `config/app.php`:
 
 ```php
 Nblackburn\Hashids\Facades\HashidsFacade::class
 ```
 
-and finally, run the following artisan command to publish the configuration should you want to make tweaks to it.
+and run the following artisan command to publish the configuration should you want to make tweaks to it.
 
 ```bash
 php artisan vendor:publish
 ```
 
 This will create a file called `hashids.php` inside your `config` directory. This is where you can change the settings to your liking.
+
+## Lumen
+
+### Installation
+
+Inside `bootstrap/app.php`, add the following line:
+
+```php
+$app->register(Nblackburn\Hashids\Providers\HashidsServiceProvider::class);
+```
+
+And you are done.
+
+### Facade
+
+To add facade support, firstly uncomment the following line within `bootstrap/app.php`:
+
+```php
+// $app->withFacades();
+```
+
+And then register the facade like so...
+
+```php
+class_alias(Nblackburn\Hashids\Facades\Hashids:class, 'Hashids');
+```
 
 ## Settings
 
