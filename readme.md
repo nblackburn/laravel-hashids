@@ -8,7 +8,7 @@ A hashids wrapper for Laravel 5+.
 
 ### Installation
 
-Inside config/app.php add the following line in your providers
+Inside `config/app.php` add the following line in your providers
 
 ```php
 Nblackburn\Hashids\Providers\HashidsServiceProvider::class
@@ -38,6 +38,13 @@ Inside `bootstrap/app.php`, add the following line:
 
 ```php
 $app->register(Nblackburn\Hashids\Providers\HashidsServiceProvider::class);
+```
+Then add the following to your `.env` file:
+
+```ini
+HASHIDS_SALT = YOURSECRETKEY
+HASHIDS_LENGTH = 8
+HASHIDS_ALPHABET = abcedfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPAQRSTUVWXYZ1234567890
 ```
 
 And you are done.
