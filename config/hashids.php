@@ -7,16 +7,16 @@ return [
 	/**
 	 * The secret used for hashing.
 	*/
-	'salt' => config('app.key'),
+	'salt' => env('HASHIDS_SALT'),
 
 	/**
 	 * The maximum length of the hash.
 	*/
-	'length' => 10,
+	'length' => env('HASHIDS_LENGTH'),
 
 	/**
 	 * The characters used for hashing.
 	*/
-	'alphabet' => 'abcedefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ123456890'
+	'alphabet' => env('HASHIDS_ALPHABET')
 
 ];

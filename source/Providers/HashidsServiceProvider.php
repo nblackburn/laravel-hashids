@@ -19,9 +19,17 @@ class HashidsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            realpath(__DIR__ . '/../../config/hashids.php') => config_path('hashids.php'),
-        ]);
+        // Set the config path.
+        $configuration = realpath(__DIR__ . '/../../config/hashids.php');
+
+        // Check the config path was resolved.
+        if(function_exists('config_path'))
+        {
+            // Publish the config.
+            $this->publishes([
+                $path => config_path('hashids.php'),
+            ]);
+        }
     }
 
     /**
@@ -31,8 +39,18 @@ class HashidsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('hashids', function($app) {
-            return new Hashids(config('hashids.salt'), config('hashids.length'), config('hashids.alphabet'));
+        // Get the salt.
+        $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
+
+        // Get the length.
+        $length = config('hashids.length') ?: env('HASHIDS_LENGTH');
+
+        // Get the alphabet.
+        $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
+
+        // Bind to the IoC container.
+        $this->app->singleton('hashids', function($app) use($salt, $length, $alphabet) {
+            return new Hashids($salt, $length, $alphabet);
         });
     }
 
