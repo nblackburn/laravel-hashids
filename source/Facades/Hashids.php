@@ -1,9 +1,11 @@
-<?php namespace Nblackburn\Hashids\Facades;
+<?php
+
+namespace Nblackburn\Hashids\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
-*/
+ */
 class Hashids extends Facade
 {
     /**
