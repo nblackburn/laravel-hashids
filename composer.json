@@ -6,6 +6,7 @@
     "type": "library",
     "license": "MIT",
     "require": {
+        "laravel/laravel": "^5.1",
         "hashids/hashids": "^1.0"
     },
     "authors": [
