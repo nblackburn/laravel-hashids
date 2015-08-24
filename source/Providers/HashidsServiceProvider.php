@@ -1,4 +1,6 @@
-<?php namespace Nblackburn\Hashids\Providers;
+<?php
+
+namespace Nblackburn\Hashids\Providers;
 
 use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
@@ -20,11 +22,10 @@ class HashidsServiceProvider extends ServiceProvider
     public function boot()
     {
         // Set the config path.
-        $configuration = realpath(__DIR__ . '/../../config/hashids.php');
+        $configuration = realpath(__DIR__.'/../../config/hashids.php');
 
         // Check the config path was resolved.
-        if(function_exists('config_path'))
-        {
+        if (function_exists('config_path')) {
             // Publish the config.
             $this->publishes([
                 $path => config_path('hashids.php'),
@@ -49,7 +50,7 @@ class HashidsServiceProvider extends ServiceProvider
         $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
 
         // Bind to the IoC container.
-        $this->app->singleton('hashids', function($app) use($salt, $length, $alphabet) {
+        $this->app->singleton('hashids', function ($app) use ($salt, $length,$alphabet) {
             return new Hashids($salt, $length, $alphabet);
         });
     }
@@ -62,7 +63,7 @@ class HashidsServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'hashids'
+            'hashids',
         ];
     }
 }
