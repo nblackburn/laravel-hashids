@@ -3,6 +3,7 @@
 A hashids wrapper for Laravel 5+.
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square) ![Dependancies](https://img.shields.io/badge/dependancies-1-green.svg?style=flat-square)
+![StyleCI](https://styleci.io/repos/38044910/shield)
 
 ## Laravel
 
