@@ -50,7 +50,7 @@ class HashidsServiceProvider extends ServiceProvider
         $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
 
         // Bind to the IoC container.
-        $this->app->singleton('hashids', function ($app) use ($salt, $length,$alphabet) {
+        $this->app->singleton('hashids', function ($app) use ($salt, $length, $alphabet) {
             return new Hashids($salt, $length, $alphabet);
         });
     }
