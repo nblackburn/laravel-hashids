@@ -1,10 +1,13 @@
 <?php
 
-namespace Nblackburn\Hashids\Facades;
+namespace LaravelHashids\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * Hashids.
+ *
+ * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
 class Hashids extends Facade
 {

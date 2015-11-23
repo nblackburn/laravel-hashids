@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * Hashids Configuration.
+ *
+ * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
 return [
 

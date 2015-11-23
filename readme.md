@@ -1,44 +1,31 @@
 # Hashids
 
-A hashids wrapper for Laravel 5+.
+A hashids wrapper for Laravel &amp; Lumen.
 
-![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square) ![Dependancies](https://img.shields.io/badge/dependancies-1-green.svg?style=flat-square)
-![StyleCI](https://styleci.io/repos/38044910/shield)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square) ![Dependencies](https://img.shields.io/badge/dependencies-1-green.svg?style=flat-square) ![StyleCI](https://styleci.io/repos/38044910/shield)
 
-## Laravel
+## Installation
 
-### Installation
+### Laravel
 
 Inside `config/app.php` add the following line in your providers
 
 ```php
-Nblackburn\Hashids\Providers\HashidsServiceProvider::class
+Nblackburn\Hashids\Providers\LaravelHashidsServiceProvider::class
 ```
 
-### Facade
-
-To add facade support, add the following line to your aliases within `config/app.php`:
-
-```php
-Nblackburn\Hashids\Facades\HashidsFacade::class
-```
-
-and run the following artisan command to publish the configuration should you want to make tweaks to it.
+and then simply run the following artisan command...
 
 ```bash
-php artisan vendor:publish
+php artisan config:publish nblackburn/laravel-hashids
 ```
 
-This will create a file called `hashids.php` inside your `config` directory. This is where you can change the settings to your liking.
-
-## Lumen
-
-### Installation
+### Lumen
 
 Inside `bootstrap/app.php`, add the following line:
 
 ```php
-$app->register(Nblackburn\Hashids\Providers\HashidsServiceProvider::class);
+$app->register(LaravelHashids\Providers\LumenHashidsServiceProvider::class);
 ```
 then add the following to your `.env` file:
 
@@ -48,9 +35,7 @@ HASHIDS_LENGTH = 8
 HASHIDS_ALPHABET = abcedfghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPAQRSTUVWXYZ1234567890
 ```
 
-and you are done.
-
-### Facade
+## Facade
 
 To add facade support, firstly uncomment the following line within `bootstrap/app.php`:
 
@@ -61,16 +46,14 @@ To add facade support, firstly uncomment the following line within `bootstrap/ap
 then register the facade like so...
 
 ```php
-class_alias(Nblackburn\Hashids\Facades\Hashids:class, 'Hashids');
+class_alias(LaravelHashids\Facades\Hashids:class, 'Hashids');
 ```
-
-and you are done.
 
 ## Settings
 
 |name    |description                                 |default                                                        |
 |--------|--------------------------------------------|---------------------------------------------------------------|
-|salt    |The secret used for hashing.                |config('app.key')                                              |
+|salt    |The secret used for hashing.                |YOURSALTGOESHERE                                               |
 |length  |The maximum length of the hash.             |10                                                             |
 |alphabet|The characters used for hashing.            |abcedefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ123456890|
 
@@ -106,8 +89,8 @@ Hashids::decode($encoded)
 
 ## Donations
 
-If you find this wrapper to be useful, please consider [donating](https://payy.me/@nblackburn).
+If you find this wrapper to be useful, please consider [donating](https://paypal.me/nblackburn).
 
 ## License
 
-This library is licensed under [MIT](http://choosealicense.com/licenses/mit), see [license.md](/license.md) for details.
+This library is licensed under [MIT](http://choosealicense.org/licenses/mit), see [license.md](license.md) for details.
