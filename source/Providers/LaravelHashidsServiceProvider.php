@@ -1,11 +1,17 @@
 <?php
 
-namespace Nblackburn\Hashids\Providers;
+namespace LaravelHashids\Providers;
 
 use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 
-class HashidsServiceProvider extends ServiceProvider
+/**
+ * LaravelHashidsServiceProvider
+ *
+ * @package LaravelHashids\Providers
+ * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
+ */
+class LaravelHashidsServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -25,10 +31,11 @@ class HashidsServiceProvider extends ServiceProvider
         $configuration = realpath(__DIR__.'/../../config/hashids.php');
 
         // Check the config path was resolved.
-        if (function_exists('config_path')) {
+        if (function_exists('config_path'))
+        {
             // Publish the config.
             $this->publishes([
-                $path => config_path('hashids.php'),
+                $configuration => config_path('hashids.php'),
             ]);
         }
     }
@@ -40,17 +47,19 @@ class HashidsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Get the salt.
-        $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
-
-        // Get the length.
-        $length = config('hashids.length') ?: env('HASHIDS_LENGTH');
-
-        // Get the alphabet.
-        $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
-
         // Bind to the IoC container.
-        $this->app->singleton('hashids', function ($app) use ($salt, $length, $alphabet) {
+        $this->app->singleton('hashids', function()
+        {
+            // Get the salt.
+            $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
+
+            // Get the length.
+            $length = config('hashids.length') ?: env('HASHIDS_LENGTH');
+
+            // Get the alphabet.
+            $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
+
+            // Return a new Hashids instance.
             return new Hashids($salt, $length, $alphabet);
         });
     }
@@ -63,7 +72,7 @@ class HashidsServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'hashids',
+            'hashids'
         ];
     }
 }
