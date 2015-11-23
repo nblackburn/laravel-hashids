@@ -6,9 +6,8 @@ use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * LaravelHashidsServiceProvider
+ * LaravelHashidsServiceProvider.
  *
- * @package LaravelHashids\Providers
  * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
 class LaravelHashidsServiceProvider extends ServiceProvider
@@ -31,8 +30,7 @@ class LaravelHashidsServiceProvider extends ServiceProvider
         $configuration = realpath(__DIR__.'/../../config/hashids.php');
 
         // Check the config path was resolved.
-        if (function_exists('config_path'))
-        {
+        if (function_exists('config_path')) {
             // Publish the config.
             $this->publishes([
                 $configuration => config_path('hashids.php'),
@@ -48,8 +46,7 @@ class LaravelHashidsServiceProvider extends ServiceProvider
     public function register()
     {
         // Bind to the IoC container.
-        $this->app->singleton('hashids', function()
-        {
+        $this->app->singleton('hashids', function () {
             // Get the salt.
             $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
 
@@ -72,7 +69,7 @@ class LaravelHashidsServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'hashids'
+            'hashids',
         ];
     }
 }

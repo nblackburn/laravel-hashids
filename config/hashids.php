@@ -1,9 +1,8 @@
 <?php
 
 /**
- * Hashids Configuration
+ * Hashids Configuration.
  *
- * @package LaravelHashids
  * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
 return [
