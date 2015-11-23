@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Nblackburn\\LaravelHashids\\": "source/"
+      "LaravelHashids\\": "source/"
     },
     "classmap": [
       "tests/"
