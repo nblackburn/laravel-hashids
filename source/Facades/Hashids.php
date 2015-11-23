@@ -5,9 +5,8 @@ namespace LaravelHashids\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Hashids
+ * Hashids.
  *
- * @package LaravelHashids\Facades
  * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
 class Hashids extends Facade
