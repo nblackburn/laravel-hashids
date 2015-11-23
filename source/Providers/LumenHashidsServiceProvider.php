@@ -6,9 +6,8 @@ use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * LumenHashidsServiceProvider
+ * LumenHashidsServiceProvider.
  *
- * @package LaravelHashids\Providers
  * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
 class LumenHashidsServiceProvider extends ServiceProvider
@@ -51,7 +50,7 @@ class LumenHashidsServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'hashids'
+            'hashids',
         ];
     }
 }
