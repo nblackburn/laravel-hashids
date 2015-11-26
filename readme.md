@@ -2,7 +2,7 @@
 
 A hashids wrapper for Laravel &amp; Lumen.
 
-![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square) ![Dependencies](https://img.shields.io/badge/dependencies-1-green.svg?style=flat-square) ![StyleCI](https://styleci.io/repos/38044910/shield)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square) ![Dependencies](https://img.shields.io/badge/dependencies-2-green.svg?style=flat-square) ![StyleCI](https://styleci.io/repos/38044910/shield)
 
 ## Installation
 
