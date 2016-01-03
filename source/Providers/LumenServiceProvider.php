@@ -27,8 +27,7 @@ class LumenServiceProvider extends ServiceProvider
     public function register()
     {
         // Bind to the IoC container.
-        $this->app->singleton('hashids', function()
-        {
+        $this->app->singleton('hashids', function () {
             $salt = env('HASHIDS_SALT');
             $length = env('HASHIDS_LENGTH');
             $alphabet = env('HASHIDS_ALPHABET');
