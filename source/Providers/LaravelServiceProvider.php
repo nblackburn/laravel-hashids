@@ -45,8 +45,7 @@ class LaravelServiceProvider extends ServiceProvider
     public function register()
     {
         // Bind to the IoC container.
-        $this->app->singleton('hashids', function()
-        {
+        $this->app->singleton('hashids', function () {
             $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
             $length = config('hashids.length') ?: env('HASHIDS_LENGTH');
             $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
