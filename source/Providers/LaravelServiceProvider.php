@@ -6,11 +6,11 @@ use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * LumenHashidsServiceProvider.
+ * LaravelHashidsServiceProvider.
  *
  * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
-class LumenHashidsServiceProvider extends ServiceProvider
+class LaravelServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -18,6 +18,24 @@ class LumenHashidsServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = true;
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // Set the config path.
+        $configuration = realpath(__DIR__.'/../../config/hashids.php');
+
+        // Check the config path was resolved.
+        if (function_exists('config_path')) {
+            $this->publishes([
+                $configuration => config_path('hashids.php'),
+            ]);
+        }
+    }
 
     /**
      * Register any application services.
@@ -28,16 +46,10 @@ class LumenHashidsServiceProvider extends ServiceProvider
     {
         // Bind to the IoC container.
         $this->app->singleton('hashids', function () {
-            // Get the salt.
-            $salt = env('HASHIDS_SALT');
+            $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
+            $length = config('hashids.length') ?: env('HASHIDS_LENGTH');
+            $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
 
-            // Get the length.
-            $length = env('HASHIDS_LENGTH');
-
-            // Get the alphabet.
-            $alphabet = env('HASHIDS_ALPHABET');
-
-            // Return a new Hashids instance.
             return new Hashids($salt, $length, $alphabet);
         });
     }
