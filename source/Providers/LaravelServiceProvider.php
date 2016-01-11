@@ -6,7 +6,7 @@ use Hashids\Hashids;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * LaravelHashidsServiceProvider.
+ * LaravelServiceProvider.
  *
  * @author Nathaniel Blackburn <support@nblackburn.uk> (http://nblackburn.uk)
  */
@@ -26,13 +26,11 @@ class LaravelServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Set the config path.
-        $configuration = realpath(__DIR__.'/../../config/hashids.php');
-
-        // Check the config path was resolved.
-        if (function_exists('config_path')) {
+        // Check the config_path method exists.
+        if (function_exists('config_path'))
+        {
             $this->publishes([
-                $configuration => config_path('hashids.php'),
+                __DIR__ . '/../../config/hashids.php' => config_path('hashids.php'),
             ]);
         }
     }
@@ -44,13 +42,14 @@ class LaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Bind to the IoC container.
-        $this->app->singleton('hashids', function () {
-            $salt = config('hashids.salt') ?: env('HASHIDS_SALT');
-            $length = config('hashids.length') ?: env('HASHIDS_LENGTH');
-            $alphabet = config('hashids.alphabet') ?: env('HASHIDS_ALPHABET');
+        // Merge the configurations.
+        $this->mergeConfigFrom(__DIR__ . '/../../config/hashids.php', 'hashids');
 
-            return new Hashids($salt, $length, $alphabet);
+        // Bind to the IoC container.
+        $this->app->singleton('hashids', function()
+        {
+            // Pass the configuration and return the instance.
+            return new Hashids(config('hashids.salt'), config('hashids.length'), config('hashids.alphabet'));
         });
     }
 
