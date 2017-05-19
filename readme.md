@@ -95,10 +95,6 @@ or with the facade
 Hashids::decode($encoded);
 ```
 
-## Donations
-
-If you find this wrapper to be useful, please consider [donating](https://paypal.me/nblackburn).
-
 ## License
 
 This library is licensed under [MIT](http://choosealicense.org/licenses/mit), see [license.md](license.md) for details.
