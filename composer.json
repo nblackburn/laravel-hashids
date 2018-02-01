@@ -1,7 +1,7 @@
 {
   "name": "nblackburn/laravel-hashids",
   "description": "A hashids wrapper for Laravel and Lumen.",
-  "license": "mit",
+  "license": "MIT",
   "require": {
     "hashids/hashids": "^1.0.0",
     "illuminate/support": "^5.2.0"
