@@ -3,7 +3,7 @@
   "description": "A hashids wrapper for Laravel and Lumen.",
   "license": "MIT",
   "require": {
-    "hashids/hashids": "^2.0.4",
+    "hashids/hashids": "^3.0.0",
     "illuminate/support": "^5.2.0"
   },
   "require-dev": {
