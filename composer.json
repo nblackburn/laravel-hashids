@@ -4,7 +4,7 @@
   "license": "MIT",
   "require": {
     "hashids/hashids": "^3.0.0",
-    "illuminate/support": "^5.2.0"
+    "illuminate/support": "^6.10.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.4.0"
